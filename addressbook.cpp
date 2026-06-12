@@ -82,3 +82,54 @@ bool addressbook::samename(const std::string& name)const{
     }
     return false;
 }
+
+void addressbook::editcontact(const std::string& name){
+    for(auto&c:contacts){
+        if(c.name==name){
+            int choice;
+            std::cout<<"选择要修改的内容:\n";
+            std::cout<<"1.姓名\n";
+            std::cout<<"2.电话\n";
+            std::cout<<"3.邮箱\n";
+            std::cout<<"请输入您的选择：";
+            std::cin>>choice;
+            switch(choice){
+                case 1:{
+                    std::string newname;
+                    std::cout<<"请输入新的姓名：";
+                    std::cin>>newname;
+                    if(samename(newname)){
+                        std::cout<<"存在同名联系人，无法修改！\n";
+                        return;
+                    }
+                    c.name=newname;
+                    std::cout<<"修改成功！\n";
+                    break;
+                }
+                case 2:{
+                    std::string newphone;
+                    std::cout<<"请输入新的电话：";
+                    std::cin>>newphone;
+                    c.phone=newphone;
+                    std::cout<<"修改成功！\n";
+                    break;
+                    }
+                case 3:{
+                    std::string newemail;
+                    std::cout<<"请输入新的邮箱：";
+                    std::cin>>newemail;
+                    c.email=newemail;
+                    std::cout<<"修改成功！\n";
+                    break;
+                }
+                default:
+                std::cout<<"无效选择！\n";
+                break;
+
+
+        }
+        return ;
+    }std::cout<<"未找到联系人:"<<name<<std::endl;
+        return ;
+    }
+}

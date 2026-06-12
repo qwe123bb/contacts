@@ -12,6 +12,7 @@ int main(){
         std::cout<<"2.查看联系人\n";
         std::cout<<"3.搜索联系人\n";
         std::cout<<"4.删除联系人\n";
+        std::cout<<"5.编辑联系人\n";
         std::cout<<"0.退出\n";
         std::cout<<"请输入您的选择：";
         std::cin>>choice;
@@ -46,6 +47,13 @@ int main(){
                 book.deletecontact(name);
                 break;
 
+            }
+            case 5:{
+                std::string name;
+                std::cout<<"请输入要编辑的姓名：";
+                std::cin>>name;
+                book.editcontact(name);
+                break;
             }
             case 0:
     

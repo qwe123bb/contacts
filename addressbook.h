@@ -13,5 +13,7 @@ class addressbook{
     void savetofile(const std::string& filename)const;
     void loadfromfile(const std::string& filename);
   bool samename(const std::string& name)const;
+    void editcontact(const std::string& name);
+    
 
 };
