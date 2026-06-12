@@ -3,6 +3,12 @@
 #include<fstream>
 
 void addressbook::addcontact(const std::string&name,const std::string&phone,const std::string&email){
+    if(samename(name)){
+        std::cout<<"存在同名联系人，无法添加！\n";
+
+        return;
+    }
+  
     contacts.emplace_back(contact(name,phone,email));
     std::cout<<"添加成功！\n";
 }
@@ -66,4 +72,13 @@ void addressbook::loadfromfile(const std::string& filename){
         contacts.emplace_back(contact(name,phone,email));
 
     }
+}
+bool addressbook::samename(const std::string& name)const{
+    for(const auto&c:contacts){
+        if(c.name==name){
+           
+            return true;
+        }
+    }
+    return false;
 }

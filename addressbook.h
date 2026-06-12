@@ -12,6 +12,6 @@ class addressbook{
     void deletecontact(const std::string&name);
     void savetofile(const std::string& filename)const;
     void loadfromfile(const std::string& filename);
-    
+  bool samename(const std::string& name)const;
 
 };
