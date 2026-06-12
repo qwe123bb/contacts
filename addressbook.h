@@ -14,6 +14,7 @@ class addressbook{
     void loadfromfile(const std::string& filename);
   bool samename(const std::string& name)const;
     void editcontact(const std::string& name);
-    
+    bool isvalidphone(const std::string& phone)const;
+
 
 };

@@ -21,8 +21,19 @@ int main(){
                 std::string name,phone,email;
                 std::cout<<"请输入姓名：";
                 std::cin>>name;
+                if(book.samename(name)){
+                    std::cout<<"存在同名联系人，无法添加！\n";
+                    break;
+                }
+                do{
                 std::cout<<"请输入电话：";
                 std::cin>>phone;
+                if(!book.isvalidphone(phone)){
+                    std::cout<<"电话号码只能包含数字，请重新输入！\n";
+
+                }
+            }while(!book.isvalidphone(phone));
+            
                 std::cout<<"请输入邮箱：";
                 std::cin>>email;
                 book.addcontact(name,phone,email);

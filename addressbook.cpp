@@ -8,6 +8,10 @@ void addressbook::addcontact(const std::string&name,const std::string&phone,cons
 
         return;
     }
+    if(!isvalidphone(phone)){
+        std::cout<<"电话号码只能包含数字，无法添加！\n";
+        return ;
+    }
   
     contacts.emplace_back(contact(name,phone,email));
     std::cout<<"添加成功！\n";
@@ -132,4 +136,13 @@ void addressbook::editcontact(const std::string& name){
     }std::cout<<"未找到联系人:"<<name<<std::endl;
         return ;
     }
+}
+
+bool addressbook::isvalidphone(const std::string& phone)const{
+    for(char c:phone){
+        if(!std::isdigit(c)){
+            return false;
+        }
+    }
+    return true;
 }
